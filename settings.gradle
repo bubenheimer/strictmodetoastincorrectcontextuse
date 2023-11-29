@@ -1,0 +1,37 @@
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    versionCatalogs {
+        libs {
+            version('android-plugin', '8.1.4')
+
+            version('android-sdk-compile', '34')
+            version('android-sdk-min', '34')
+            version('android-sdk-target', '34')
+
+            version('java', JavaVersion.VERSION_11.toString())
+
+            version('kotlin', '1.9.21')
+
+
+            plugin('android-application', 'com.android.application')
+                    .versionRef('android-plugin')
+
+            plugin('kotlin-android', 'org.jetbrains.kotlin.android')
+                    .versionRef('kotlin')
+        }
+    }
+}
+
+include(":app")
